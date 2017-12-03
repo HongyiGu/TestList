@@ -702,4 +702,33 @@ public class Test_ListImplementations {
 	    		}
 
 	    	    }
+	
+	private static void test20_get_Multiple_Items(String className, ListADT<String> list) {
+		list = constructListOfString(className);
+		String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		String ta_name = list.getClass().getName();
+		
+		String expItem = "123456";
+		try {
+			list.add("1");
+			list.add("2");
+			list.add("3");
+			list.add("4");
+			list.add("5");
+			list.add("6");
+			String getItem = list.get(0) + list.get(1) + list.get(2) + list.get(3) + list.get(4) + list.get(5);
+			
+			if (!getItem.equals(expItem)) {
+				failMsg(name+" for "+ta_name,expItem, ""+getItem);
+			}
+			
+			else {
+				System.out.println("test passed");
+			}
+		}
+		
+		catch (Exception e) {
+			failMsg(name+" for "+ta_name,expItem, ""+e);
+		}
+	}
 }
